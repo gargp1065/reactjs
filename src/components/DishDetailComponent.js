@@ -1,9 +1,8 @@
-import React, {Component, Fragment} from 'react'
+import React, {Fragment} from 'react'
 import { Card, CardBody, CardImg, CardTitle } from 'reactstrap';
 
-class DishDetail extends Component {
 
-    renderDish(dish) {
+    function RenderDish({dish}) {
         return (
             <Card>
                 <CardImg width="100%" src={dish.image} alt={dish.name}/>
@@ -15,9 +14,9 @@ class DishDetail extends Component {
         );
     }
 
-    renderComments(dish) {
-        console.log(dish);
-        if(dish.comments == null) { 
+    function RenderComments({comments}) {
+        console.log(comments);
+        if(comments == null) { 
             return (
                 <div></div>
             );
@@ -29,7 +28,7 @@ class DishDetail extends Component {
                     <br/>
                     <ul className="list-unstyled">
                         {
-                            dish.comments.map((item) =>{
+                            comments.map((item) =>{
                                 return (
                                     <Fragment key={item.id}>
                                         <li>{item.comment}</li>
@@ -43,29 +42,27 @@ class DishDetail extends Component {
             );
         }
     }
-    render () {
-        const {dish} = this.props;
-        if(dish == null) {
+    const DishDetail = (props) => {
+        if(props.dish == null) {
             return (
                 <div></div>
             );
         }
         else {
             return (
-                <div class="container">
+                <div className="container">
                     <div className="row">
                         <div className="col-12 col-md-5 m-1">
-                            {this.renderDish(dish)}
+                            <RenderDish dish={props.dish}/>
                         </div>
 
                         <div className="col-12 col-md-5 m-1">
-                            {this.renderComments(dish)}
+                            <RenderComments comments = {props.dish.comments}/>
                         </div>
                     </div>
                 </div>
             )
         }
     }
-}
 
 export default DishDetail
