@@ -1,26 +1,23 @@
 import React, {Component, Fragment} from 'react'
 import { Card, CardBody, CardImg, CardTitle } from 'reactstrap';
-class dishDetail extends Component {
-    constructor(props) {
-        super(props);
 
-    }
+class DishDetail extends Component {
 
-    renderDish(dishSelected) {
+    renderDish(dish) {
         return (
             <Card>
-                <CardImg width="100%" src={dishSelected.image} alt={dishSelected.name}/>
+                <CardImg width="100%" src={dish.image} alt={dish.name}/>
                 <CardBody>
-                    <CardTitle>{dishSelected.name}</CardTitle>
-                    <CardBody>{dishSelected.description}</CardBody>
+                    <CardTitle>{dish.name}</CardTitle>
+                    <CardBody>{dish.description}</CardBody>
                 </CardBody>
             </Card>
         );
     }
 
-    renderComments(dishSelected) {
-        // console.log(dishSelected);
-        if(dishSelected.comments == null) { 
+    renderComments(dish) {
+        console.log(dish);
+        if(dish.comments == null) { 
             return (
                 <div></div>
             );
@@ -32,11 +29,11 @@ class dishDetail extends Component {
                     <br/>
                     <ul className="list-unstyled">
                         {
-                            dishSelected.comments.map((item) =>{
+                            dish.comments.map((item) =>{
                                 return (
-                                    <Fragment>
+                                    <Fragment key={item.id}>
                                         <li>{item.comment}</li>
-                                        <li>-- {item.author}, {item.date}</li><br/>
+                                        <li>-- {item.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(item.date)))}</li><br/>
                                     </Fragment>
                                 );
                             })
@@ -47,8 +44,8 @@ class dishDetail extends Component {
         }
     }
     render () {
-        const {dishSelected} = this.props;
-        if(dishSelected == null) {
+        const {dish} = this.props;
+        if(dish == null) {
             return (
                 <div></div>
             );
@@ -57,11 +54,11 @@ class dishDetail extends Component {
             return (
                 <div className="row">
                     <div className="col-12 col-md-5 m-1">
-                        {this.renderDish(dishSelected)}
+                        {this.renderDish(dish)}
                     </div>
 
                     <div className="col-12 col-md-5 m-1">
-                        {this.renderComments(dishSelected)}
+                        {this.renderComments(dish)}
                     </div>
                 </div>
             )
@@ -69,4 +66,4 @@ class dishDetail extends Component {
     }
 }
 
-export default dishDetail
+export default DishDetail
