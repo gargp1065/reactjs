@@ -24,11 +24,11 @@ function RenderItem({leaders}) {
 }
 function About(props) {
 
-    const leaders = props.leaders.map((leader) => {
-        return (
-            <p>Leader {leader.name}</p>
-        );
-    });
+    // const leaders = props.leaders.map((leader) => {
+    //     return (
+    //         <p>Leader {leader.name}</p>
+    //     );
+    // });
     return(
 
         <div className="container">
@@ -95,5 +95,4 @@ function About(props) {
         </div>
     );
 }
-
 export default About;       
