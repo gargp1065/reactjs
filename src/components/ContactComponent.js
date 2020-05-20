@@ -7,7 +7,7 @@ function Contact(props) {
             <div className="row">
                 <Breadcrumb>
                     <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
-                    <BreadcrumbItem active><Link to="/contacus">Contact Us</Link></BreadcrumbItem>
+                    <BreadcrumbItem active><Link to="/contactus">Contact Us</Link></BreadcrumbItem>
                 </Breadcrumb>
             </div>
             <div className="col-12">
