@@ -126,7 +126,6 @@ class Contact extends Component {
                     </div>
                     <div className="col-12 col-md-9">
                         <Form onSubmit={this.handleSubmit}>
-
                             <FormGroup row>
                                 <Label htmlFor="firstname" md={2}>First Name</Label>
                                 <Col md={10}>
@@ -183,7 +182,6 @@ class Contact extends Component {
                                 </Col>
                             </FormGroup>
 
-
                             <FormGroup row>
                                 <Col md={{size: 6, offset: 2}}>
                                     <FormGroup check>
@@ -192,7 +190,6 @@ class Contact extends Component {
                                             <strong>We may contact you?</strong>
                                         </Label>
                                     </FormGroup>
-                                    <FormFeedback>errors.telnum</FormFeedback>
                                 </Col>
                                 <Col md={{size: 3, offset: 1}}>
                                     <Input type="select" name="contactType" value={this.state.contactType} onChange={this.handleInputChange}> 
@@ -218,9 +215,7 @@ class Contact extends Component {
                                 </Col>
                             </FormGroup>
                         </Form>
-
                     </div>
-
                 </div>
             </div>
         );
