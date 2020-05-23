@@ -92,7 +92,7 @@ class Contact extends Component {
                 <div className="row">
                     <Breadcrumb>
                         <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
-                        <BreadcrumbItem active><Link to="/contactus">Contact Us</Link></BreadcrumbItem>
+                        <BreadcrumbItem active>Contact Us</BreadcrumbItem>
                     </Breadcrumb>
                 </div>
                 <div className="col-12">
@@ -205,7 +205,7 @@ class Contact extends Component {
                                     <Control.text model=".email" id="email" name="email"
                                         placeholder="Email"
                                         className="form-control"
-                                        validators={{
+                                     x   validators={{
                                             required, validEmail
                                         }}
                                          />
@@ -233,7 +233,10 @@ class Contact extends Component {
                                 </Col>
                                 <Col md={{size: 3, offset: 1}}>
                                     <Control.select model=".contactType" name="contactType"
-                                        className="form-control"/>
+                                        className="form-control">
+                                            <option>Tel. Num</option>
+                                            <option>Email</option>
+                                        </Control.select>
                                 </Col>
                             </Row>
 
