@@ -131,7 +131,7 @@ import {FadeTransform, Fade, Stagger} from 'react-animation-components'
         }
 
         handleSubmit(values) {
-            console.log(values);
+            // console.log(values);
             this.props.postComment(this.props.dishId, values.rating, values.author, values.comment);
             this.setState({
                 isModalOpen: !this.state.isModalOpen
